@@ -20,7 +20,7 @@ stages{
 	}
 	stage("static code nalysis"){
 	steps{
-	   withSonarQubeEnv('SonarQube') {
+	   withSonarQubeEnv('sonar-key') {
                     sh "./gradlew sonarqube"
 
 	   }
