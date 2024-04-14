@@ -8,6 +8,10 @@ stages{
 		
 		
 	}
+	stage("build"){
+	steps{
+		mvn clean insrall
+	}
 	}
 }
 }
