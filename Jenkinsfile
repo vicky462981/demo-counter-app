@@ -20,14 +20,16 @@ stages{
 	}
 	stage("static code nalysis"){
 	steps{
-		withSonarQubeEnv(credentialsId: 'sonar-key')
+	   scripts{
+		withSonarQubeEnv(credentialsId: 'sonar-key'){
 		sh 'mvn clean package sonar:sonar'
 
-
+	   }
 
 	}
     
 }
+	}
 			
 	}
 }
