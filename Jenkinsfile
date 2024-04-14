@@ -8,11 +8,7 @@ stages{
 		
 		
 	}
-	stage("build"){
-	steps{
-		mvn clean install
-	}
 	}
 }
 }
-}
+
