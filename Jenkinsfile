@@ -2,7 +2,7 @@ pipeline {
   agent any
  tools{
 	 maven 'MAVEN_HOME'
-	 jdk11 'JAVA_HOME'
+	 jdk 'JAVA_HOME'
  }
 
 stages{
