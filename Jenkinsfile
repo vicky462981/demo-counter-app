@@ -3,9 +3,7 @@ pipeline {
  tools{
 	maven 'M3'
  }
-	environment{
-	SCANNER_HOME=tool 'sonarscannner'
-	}
+	
 
 stages{
 	stage("git clone"){
@@ -16,17 +14,14 @@ stages{
 	}
 	stage("Build"){
 	steps{
-		sh 'mvn clean install'
+		sh 'mvn clean install -f demo-counter-app/pom.xml'
 			
 	}
 	}
 	stage("static code nalysis"){
 	steps{
 	   withSonarQubeEnv('sonarqubeserver') {
-		   sh ''' $scanner_HOME/bin/sonar-scanner -Dsonar.projectName=myprojt\
-                  Dsonar.java.binaries=. \
-		  .Dsonar.projectKey=myprojt
-    		'''
+		  sh 'mvn clean install -f demo-counter-app/pom.xml'
 
 	   }
 
