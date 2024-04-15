@@ -23,7 +23,7 @@ stages{
 	steps{
 		script{
 	   withSonarQubeEnv(installationName:'sonarqubeserver',credentialsId:'Sonar_qube') {
-		  sh 'mvn sonar:sonar -Dsonar.projectKey=your_project_key''
+		  sh 'mvn sonar:sonar -Dsonar.projectKey=your_project_key'
 
 	   }
 		}
