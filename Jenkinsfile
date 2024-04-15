@@ -22,6 +22,8 @@ stages{
 	steps{
 		script{
 	   withSonarQubeEnv(installationName:'sonarqubeserver',credentialsId:'Sonar_qube') {
+		   echo 'Workspace Path: ${env.WORKSPACE}'
+
 		   sh 'sonar-scanner -Dsonar.report.export.path=report-task.txt'
 		  sh 'mvn sonar:sonar'
 
