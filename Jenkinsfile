@@ -3,6 +3,10 @@ pipeline {
  tools{
 	maven 'M3'
  }
+	    environment {
+        PATH = "/path/to/sonar-scanner/bin:$PATH"
+    }
+
 	
 
 stages{
