@@ -22,7 +22,7 @@ stages{
 	stage("static code nalysis"){
 	steps{
 		script{
-	    def scannerHome = tool 'SonarScanner'
+	    def scannerHome = tool 'sonarscannner'
                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=your_project_key"
 
 	   }
