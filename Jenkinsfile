@@ -14,7 +14,7 @@ stages{
 	}
 	stage("Build"){
 	steps{
-		sh 'mvn clean install -f demo-counter-app/pom.xml'
+		sh 'mvn clean install'
 			
 	}
 	}
