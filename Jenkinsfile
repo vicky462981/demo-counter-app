@@ -20,7 +20,7 @@ stages{
 	}
 	stage("static code nalysis"){
 	steps{
-		scripts{
+		script{
 	   withSonarQubeEnv(installationName:'sonarqubeserver',credentialsId:'Sonar_qube') {
 		  sh 'mvn sonar:sonar'
 
