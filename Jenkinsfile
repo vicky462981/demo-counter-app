@@ -21,7 +21,7 @@ stages{
 	stage("static code nalysis"){
 	steps{
 	   withSonarQubeEnv('sonarqubeserver') {
-		  sh 'mvn sonar:sonar -f demo-counter-app/pom.xml'
+		  sh 'mvn sonar:sonar'
 
 	   }
 
