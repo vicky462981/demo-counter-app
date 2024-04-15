@@ -3,7 +3,9 @@ pipeline {
  tools{
 	maven 'M3'
  }
- 
+	environment{
+	SCANNER_HOME=tool 'sonar-scanner'
+	}
 
 stages{
 	stage("git clone"){
@@ -20,8 +22,11 @@ stages{
 	}
 	stage("static code nalysis"){
 	steps{
-	   withSonarQubeEnv('sonar-key') {
-                    sh "./gradlew sonarqube"
+	   withSonarQubeEnv('sonarqubeserver') {
+		   sh ''' $scanner_HOME/bin/sonar-scanner -Dsonar.projectName=myprojt\
+                  Dsonar.java.binaries=. \
+		  .Dsonar.projectKey=myprojt
+    		'''
 
 	   }
 
