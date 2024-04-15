@@ -3,7 +3,9 @@ pipeline {
  tools{
 	maven 'M3'
  }
-	
+environment{
+	SCANNER_HOME= tool 'sonarscannner'
+}
 	
 
 stages{
@@ -21,9 +23,10 @@ stages{
 	}
 	stage("static code nalysis"){
 	steps{
-		script{
-	    def scannerHome = tool 'sonarscannner'
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=your_project_key"
+
+     sh ''' $SCANNER_HOME/bin/sonarscannner -Dsonar.url=http://13.233.173.216:9000/ -Dsonar.login=441c9d84efb64697125681a543b307c650d9beb9 -Dsonar.projectName=Myproject \
+     -Dsonar.java.binaries=. \
+     -Dsonar.projectKey=Myproject '''
 
 	   }
 		}
