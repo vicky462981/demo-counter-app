@@ -22,8 +22,8 @@ stages{
 	stage("static code nalysis"){
 	steps{
 		script{
-	   withSonarQubeEnv(installationName:'sonarqubeserver',credentialsId:'Sonar_qube') {
-		  sh 'mvn sonar:sonar -Dsonar.projectKey=Myproject'
+	    def scannerHome = tool 'SonarScanner'
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=your_project_key"
 
 	   }
 		}
