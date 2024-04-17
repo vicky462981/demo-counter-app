@@ -3,10 +3,6 @@ pipeline {
  tools{
 	maven 'M3'
  }
-environment{
-	SCANNER_HOME= tool 'sonarscannner'
-}
-	
 
 stages{
 	stage("git clone"){
